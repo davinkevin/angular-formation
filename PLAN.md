@@ -1,6 +1,15 @@
 # Angular Formation
 
-Summary : 
+## Introduction
+
+* Kevin, Me and Myself... 
+* Everyone will learn, you and me !
+* Don't be afraid to ask...
+* OpenSource Formation !
+* Collaborative formation: If you found something, contribute !
+
+## Summary
+
 * The past, present and future
 * Angular as a platform
 * Deep dive into Angular
