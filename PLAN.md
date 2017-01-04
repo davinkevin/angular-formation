@@ -52,9 +52,13 @@ Summary :
 ### Relying on... 
 
 * RxJS 5.X
+    * TP About RxJS : RxJS 101
 * ZoneJS
-* Reflect Metadata
+    * TP about ZoneJS : Measuring timing with ZoneJS
 * Injector for Dependency Injection
+    * Link to Dagger2
+    * Simple example
+* Reflect Metadata
 
 ## Deep Dive into Angular
 
