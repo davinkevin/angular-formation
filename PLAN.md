@@ -36,14 +36,16 @@ Summary :
 
 ### Tooling
 
+* Augury
+    * Show routing system
+    * Show Injector
+    * Show properties
 * Angular Compiler for Ahead Of Time Compilation
     * Goal of AOT
 * Codelyzer
     * Tools to help to code better
 * Introducing the AngularCLI
     * Description of main Features
-* Augury
-    * Show simply it
 * Karma, Jasmine and Protractor in TypeScript
 
 
@@ -52,6 +54,9 @@ Summary :
 * RxJS 5.X
 * ZoneJS
 * Reflect Metadata
+* Injector for Dependency Injection
+
+## Deep Dive into Angular
 
 
 <!--
