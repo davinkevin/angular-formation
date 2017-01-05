@@ -71,10 +71,35 @@
 
 ## Deep Dive into Angular
 
+### Anatomy of Angular Application
 
-<!--
-@Component, Service, @NgModule, FormTemplate, ReactiveForm
--->
-<!--
-Unit testing, End-To-End Testing
--->
+* @Component
+    * Principal Node
+    * Tree organization
+    * Change detection from root to bottom
+    * ViewEncapsulationModule
+* @NgModule
+    * Center of compilation
+    * Attributes : Declaration, import, export... 
+    * Visibility of elements of @NgModule in Injector
+* @Directive
+* @Injectable
+* @Pipe
+
+### Useful Angular Module : 
+
+* CommonModule
+* BrowserModule
+* RouterModule
+* FormModule (Reactive and Template)
+
+### Testing FTW !
+
+* Everything is testable !
+* Unit-Testing in Angular World
+    * TestBed et Module Def
+    * Way to instantiate elements
+    * async, fakeAsync, inject... 
+* E2E Testing, let UAT do real exploration tests !
+    * What is Protractor / Selenium
+    * PageObject paradigme
