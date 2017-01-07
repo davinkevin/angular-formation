@@ -2,3 +2,14 @@
   background: none;
   border: none;
   box-shadow: none; }
+
+.reveal section a:hover img {
+  box-shadow: none;
+  filter: drop-shadow(1px 1px 5px #aaa); }
+
+.reveal .open-source div {
+  display: flex;
+  justify-content: space-around; }
+  .reveal .open-source div .github-link img {
+    margin: 0;
+    height: 32px; }
