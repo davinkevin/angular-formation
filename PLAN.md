@@ -24,8 +24,9 @@
 
 ### Rise of new tech
 * Rise of modern browser
-* Rise of Libraries (jQuery, Mojo)
+* Rise of Libraries (jQuery, Dojo)
 * Rise of Frameworks ! (React, VueJS, Ember)
+* From Mobile first to Offline first
 
 ### Language 
 
