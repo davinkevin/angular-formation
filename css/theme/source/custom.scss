@@ -36,4 +36,10 @@
     align-items:center;
     align-content: stretch;
   }
+  .trends {
+    iframe {
+      border: none !important;
+      width: 75%;
+    }
+  }
 }

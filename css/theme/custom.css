@@ -20,3 +20,7 @@
   justify-content: space-around;
   align-items: center;
   align-content: stretch; }
+
+.reveal .trends iframe {
+  border: none !important;
+  width: 75%; }
