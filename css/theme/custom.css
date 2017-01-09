@@ -13,3 +13,10 @@
   .reveal .open-source div .github-link img {
     margin: 0;
     height: 32px; }
+
+.reveal .browser-alternatives {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch; }
