@@ -5,14 +5,25 @@
     background: none;
     border: none;
     box-shadow: none;
+
+
   }
+
+  .spin {
+    animation:spin 2s linear infinite;
+  }
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
 
   a:hover img {
     box-shadow: none;
     filter: drop-shadow(1px 1px 5px #aaa);
   }
-
 }
+
+
 
 // Slides modifications :
 .reveal {
@@ -42,13 +53,19 @@
       width: 75%;
     }
   }
-  .react, .vuejs, .polymer, .angular {
+  .react, .vuejs, .polymer, .angular, .offline {
     .properties {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-around;
     align-items:center;
     align-content: stretch;
+    }
+  }
+
+  .installable, .up-to-date, .offline, .secured, .notification {
+    i {
+      font-size: 25vh;
     }
   }
 
