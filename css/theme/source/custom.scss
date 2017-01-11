@@ -62,12 +62,66 @@
     align-content: stretch;
     }
   }
-
   .installable, .up-to-date, .offline, .secured, .notification {
     i {
       font-size: 25vh;
     }
   }
+  .vern-diagram-js {
+
+    .container {
+
+      height: 50vh;
+      color: black;
+      vertical-align: middle;
+      text-align: center;
+
+      .circle {
+        position: absolute;
+        left:25vh;
+        border-radius: 50%;
+      }
+
+      .big {
+        width:  50vh;
+        height: 50vh;
+        line-height: 30vh;
+      }
+
+      .medium {
+        left:35vh;
+        top: 22vh;
+        width:  30vh;
+        height: 30vh;
+        line-height: 30vh;
+      }
+
+      .mini {
+        left: 45vh;
+        top: 42vh;
+        width:  10vh;
+        height: 10vh;
+        line-height: 10vh;
+      }
+
+      .js {
+        background-color: yellow;
+      }
+
+      .ts {
+        color:white;
+        background-color: dodgerblue;
+      }
+
+      .es2015 {
+        background-color: darkorange;
+      }
+
+    }
+
+
+  }
+
 
   .slide-background.angular {
     background-size: contain;

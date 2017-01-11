@@ -51,6 +51,39 @@
 .reveal .installable i, .reveal .up-to-date i, .reveal .offline i, .reveal .secured i, .reveal .notification i {
   font-size: 25vh; }
 
+.reveal .vern-diagram-js .container {
+  height: 50vh;
+  color: black;
+  vertical-align: middle;
+  text-align: center; }
+  .reveal .vern-diagram-js .container .circle {
+    position: absolute;
+    left: 25vh;
+    border-radius: 50%; }
+  .reveal .vern-diagram-js .container .big {
+    width: 50vh;
+    height: 50vh;
+    line-height: 30vh; }
+  .reveal .vern-diagram-js .container .medium {
+    left: 35vh;
+    top: 22vh;
+    width: 30vh;
+    height: 30vh;
+    line-height: 30vh; }
+  .reveal .vern-diagram-js .container .mini {
+    left: 45vh;
+    top: 42vh;
+    width: 10vh;
+    height: 10vh;
+    line-height: 10vh; }
+  .reveal .vern-diagram-js .container .js {
+    background-color: yellow; }
+  .reveal .vern-diagram-js .container .ts {
+    color: white;
+    background-color: dodgerblue; }
+  .reveal .vern-diagram-js .container .es2015 {
+    background-color: darkorange; }
+
 .reveal .slide-background.angular {
   background-size: contain;
   background: url("../../../img/pastpresentfuture/frameworks/background_angular.png") no-repeat bottom center, linear-gradient(145deg, #0D47A1, #42A5F5); }
