@@ -84,6 +84,13 @@
   .reveal .vern-diagram-js .container .es2015 {
     background-color: darkorange; }
 
+.reveal .language-in-angular .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch; }
+
 .reveal .slide-background.angular {
   background-size: contain;
   background: url("../../../img/pastpresentfuture/frameworks/background_angular.png") no-repeat bottom center, linear-gradient(145deg, #0D47A1, #42A5F5); }
