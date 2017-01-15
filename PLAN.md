@@ -58,18 +58,6 @@
     * Description of main Features
 * Karma, Jasmine and Protractor in TypeScript
 
-
-### Relying on... 
-
-* RxJS 5.X
-    * TP About RxJS : RxJS 101
-* ZoneJS
-    * TP about ZoneJS : Measuring timing with ZoneJS
-* Injector for Dependency Injection
-    * Link to Dagger2
-    * Simple example
-* Reflect Metadata
-
 ## Deep Dive into Angular
 
 ### Anatomy of Angular Application
@@ -86,6 +74,17 @@
 * @Directive
 * @Injectable
 * @Pipe
+
+### Relying on... 
+
+* Injector for Dependency Injection
+    * Link to Dagger2
+    * Simple example
+* RxJS 5.X
+    * TP About RxJS : RxJS 101
+* ZoneJS
+    * TP about ZoneJS : Measuring timing with ZoneJS
+* Reflect Metadata
 
 ### Useful Angular Module : 
 
