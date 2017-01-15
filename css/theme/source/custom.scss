@@ -20,6 +20,8 @@
   a:hover img {
     box-shadow: none;
     filter: drop-shadow(1px 1px 5px #aaa);
+    background: none;
+    border: none;
   }
 }
 
@@ -55,11 +57,11 @@
   }
   .react, .vuejs, .polymer, .angular, .offline {
     .properties {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    align-items:center;
-    align-content: stretch;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-around;
+      align-items:center;
+      align-content: stretch;
     }
   }
   .installable, .up-to-date, .offline, .secured, .notification {
@@ -130,6 +132,7 @@
       align-content: stretch;
     }
   }
+
 
 
   .slide-background.angular {

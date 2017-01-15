@@ -21,7 +21,9 @@
 
 .reveal section a:hover img {
   box-shadow: none;
-  filter: drop-shadow(1px 1px 5px #aaa); }
+  filter: drop-shadow(1px 1px 5px #aaa);
+  background: none;
+  border: none; }
 
 .reveal .open-source div {
   display: flex;
