@@ -132,7 +132,15 @@
       align-content: stretch;
     }
   }
-
+  .terminal {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-around;
+      align-items:center;
+      align-content: stretch;
+    }
+  }
 
 
   .slide-background.angular {
