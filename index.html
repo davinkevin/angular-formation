@@ -15,11 +15,11 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Printing and PDF exports -->
 	<script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
 	</script>
 </head>
 <body>
@@ -427,6 +427,51 @@
 				&nbsp;
 			</section>
 		</section>
+		<section id="cli_101">
+			<section data-background-image="img/cli_101/matrice.gif">
+				<h3>Essential command for Angular CLI</h3>
+			</section>
+			<section>
+				<h3>Create a project</h3>
+				<pre><code class="hljs shell" data-trim data-noescape>
+$ ng new <span class="fragment">&lt;NAME_OF_PROJECT&gt;</span> <span class="fragment">--prefix gi</span> <span class="fragment">--style sass</span>
+				</code></pre>
+			</section>
+			<section>
+				<h3>Generate an element</h3>
+				<pre><code class="hljs shell" data-trim data-noescape>
+$ ng generate <span class="fragment">component</span> <span class="fragment">&lt;NAME_OF_ELEMENT&gt;</span>
+				</code></pre>
+				<pre class="fragment"><code class="hljs shell" data-trim data-noescape>
+$ ng g c &lt;NAME_OF_ELEMENT&gt;
+				</code></pre>
+				<p class="fragment">Can be used to generate <code>directive</code>, <code>pipe</code>, <code>service</code>, <code>class</code>, <code>interface</code>, <code>enum</code> and <code>module</code></p>
+			</section>
+			<section>
+				<h3>Serve your App</h3>
+				<pre><code class="hljs bash">
+$ ng serve
+				</code></pre>
+			</section>
+			<section>
+				<h3>Test your app</h3>
+				<pre><code class="hljs bash">
+$ ng test
+				</code></pre>
+			</section>
+			<section>
+				<h3>Open the Angular doc</h3>
+				<pre><code class="hljs bash">
+$ ng doc &lt;SEARCH_WORD&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>See help about the CLI</h3>
+				<pre><code class="hljs bash">
+$ ng --help
+				</code></pre>
+			</section>
+		</section>
 	</div>
 </div>
 
@@ -434,18 +479,18 @@
 <script src="js/reveal.js"></script>
 
 <script>
-    // More info https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        history: true,
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
 
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            { src: 'plugin/markdown/marked.js' },
-            { src: 'plugin/markdown/markdown.js' },
-            { src: 'plugin/notes/notes.js', async: true },
-            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-    });
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+  });
 </script>
 </body>
 </html>
