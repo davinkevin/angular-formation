@@ -510,6 +510,34 @@ $ ng --help
 				</ul>
 			</section>
 		</section>
+		<section id="anatomy_of_a_component__template">
+			<section>
+				<h3>Template</h3>
+				<pre><code class="hljs html">
+&lt;div&gt; My title is {{ title }} &lt;/div&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>Property Bindings</h3>
+				<p>We use standard HTML for property binding</p>
+				<div>
+					<pre><code class="hljs html">
+&lt;h3 [hidden]="isHidden" [class.active]="favoriteHero === hero" &gt;
+  Your favorite hero is: {{ favoriteHero }}
+&lt;/h3&gt;
+					</code></pre>
+				</div>
+			</section>
+			<section>
+				<h3>NgModel Directive</h3>
+				<pre><code class="hljs html">
+&lt;input [(ngModel)]="foo.bar"&gt;
+				</code></pre>
+				<p>This syntax is a mix between property and event bindings</p>
+			</section>
+			<section data-background="img/anatomy_of_a_component/template/twowaybinding.png">&nbsp;</section>
+
+		</section>
 	</div>
 </div>
 
