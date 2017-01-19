@@ -536,7 +536,47 @@ $ ng --help
 				<p>This syntax is a mix between property and event bindings</p>
 			</section>
 			<section data-background="img/anatomy_of_a_component/template/twowaybinding.png">&nbsp;</section>
-
+			<section>
+				<h3>Structural Directive</h3>
+				<p>All the directive inducing a dom modification outside of the current element are called <b>Structural Directive</b></p>
+				<ul>
+					<li>ng-if</li>
+					<li>ng-switch</li>
+					<li>ng-repeat</li>
+				</ul>
+			</section>
+			<section>
+				<h3>The syntax is little bit special...</h3>
+				<pre><code class="hljs html">
+&lt;p *ngIf="condition"&gt;
+  condition is true so this block is shown.
+&lt;/p&gt;
+				</code></pre>
+				<pre><code class="hljs html">&lt;tr *ngFor="let movie of movies"&gt;{{movie.name}}&lt;/tr&gt;</code></pre>
+				<p class="fragment">But Why ?</p>
+			</section>
+			<section>
+				<h3>Using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template">HTML Template Element</a></h3>
+				<pre><code class="hljs html">
+&lt;template&gt;
+    &lt;div&gt;A super template !&lt;/div&gt;
+&lt;/template&gt;</code></pre>
+				<p>This template isn't rendered by the browser but can be used</p>
+			</section>
+			<section>
+				<h3>The asterisk (*) effect</h3>
+				<pre><code class="hljs html">&lt;p *ngIf="condition"&gt;
+    A super template !
+&lt;/p&gt;</code></pre>
+				<pre><code class="hljs html">
+&lt;template [ngIf]="condition"&gt;
+  &lt;p&gt;
+    A super template !
+  &lt;/p&gt;
+&lt;/template&gt;</code></pre>
+				<p class="fragment">So, the * is just a syntaxic sugar</p>
+				<p class="fragment">And we can write our own Structural Directive !</p>
+			</section>
 		</section>
 	</div>
 </div>
