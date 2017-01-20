@@ -577,6 +577,14 @@ $ ng --help
 				<p class="fragment">So, the * is just a syntaxic sugar</p>
 				<p class="fragment">And we can write our own Structural Directive !</p>
 			</section>
+			<section>
+				<h3>Local template variable</h3>
+				<p>We can define a template variable associated to a dom element</p>
+				<pre><code class="hljs html">
+&lt;video #player src="foo.mp4"&gt;&lt;/video&gt;
+&lt;button (click)="player.play()"&gt;&lt;/button&gt;
+				</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
