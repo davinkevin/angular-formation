@@ -100,6 +100,9 @@
   align-items: center;
   align-content: stretch; }
 
+.reveal .muted {
+  color: #999999; }
+
 .reveal .slide-background.angular {
   background-size: contain;
   background: url("../../../img/pastpresentfuture/frameworks/background_angular.png") no-repeat bottom center, linear-gradient(145deg, #0D47A1, #42A5F5); }

@@ -594,6 +594,68 @@ $ ng --help
 			<section data-background-image="img/anatomy_of_a_component/logic/brain.gif">
 				&nbsp;
 			</section>
+			<section>
+				<h3>Shell up a Component Declaration</h3>
+				<pre><code class="hljs typescript">
+import { Component } from 'angular2/core';
+
+@Component({
+ selector: 'todo',
+ template: `&lt;h1&gt;{{ title }}&lt;/h1&gt;`
+})
+export class TodoComp {
+  title : String = 'A super presentation !!';
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Using a service in my component</h3>
+				<pre><code class="hljs javascript">
+import { Component } from 'angular2/core';
+import { MyService } from './myservice';
+
+@Component({
+ selector: 'todo',
+ template: `&lt;h1&gt;{{ title }}&lt;/h1&gt;`
+})
+export class TodoComp {
+  title : String = 'A super presentation !!';
+
+  constructor(private _myService : MyService){} // DI by constructor
+}
+				</code></pre>
+			</section>
+			<section data-transition="none-out">
+				<h3>Now, Components have an intuitive LifeCycle</h3>
+				<ul>
+					<li><b>OnChange</b><i class="fragment muted"> - input|output binding value changes</i></li>
+					<li><b>OnInit</b><i class="fragment muted"> - after the 1st OnChange</i></li>
+					<li><b>DoCheck</b><i class="fragment muted"> - dev's custom change detection</i></li>
+					<li><b>AfterContentInit</b><i class="fragment muted"> - after comp content initialized</i></li>
+					<li><b>AfterContentChecked</b><i class="fragment muted"> - after every check of comp content</i></li>
+					<li><b>AfterViewInit</b><i class="fragment muted"> - after comp's view(s) are initialized</i></li>
+					<li><b>AfterViewChecked</b><i class="fragment muted"> - after every check of a comp's view(s)</i></li>
+					<li><b>OnDestroy</b><i class="fragment muted"> - just before destruction</i></li>
+				</ul>
+			</section>
+			<section>
+				<h3>And we can use Interface to declare it</h3>
+				<pre><code class="hljs typescript">
+import { Component } from 'angular2/core';
+import { MyService } from './myservice';
+
+@Component({
+ selector: 'todo',
+ template: `&lt;h1&gt;{{ title }}&lt;/h1&gt; &lt;emitter&gt;&lt;/emitter&gt;`,
+})
+export class TodoComp implements OnInit {
+  title : String = 'A super presentation !!';
+  constructor(private _myService : MyService){}
+
+  ngOnInit() { console.log('The Component is initialised'); }
+}
+				</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
