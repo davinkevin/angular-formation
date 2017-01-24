@@ -586,7 +586,7 @@ $ ng --help
 				</code></pre>
 			</section>
 		</section>
-		<section>
+		<section id="anatomy_of_a_component__logic">
 			<section>
 				<h3>Component Logic</h3>
 				<p>The brain of the component...</p>
@@ -655,6 +655,88 @@ export class TodoComp implements OnInit {
   ngOnInit() { console.log('The Component is initialised'); }
 }
 				</code></pre>
+			</section>
+		</section>
+		<section id="anatomy_of_a_component__communication">
+			<section>
+				<h3>Communication</h3>
+				<p>We have now a component, but we want to communicate with other element</p>
+			</section>
+			<section>
+				<h3>Again, all is in component !</h3>
+			</section>
+			<section>
+				<h3>Input(s)</h3>
+				<pre class="fragment"><code class="hljs typescript">
+import {Component, Input} from 'angular2/core';
+
+@Component({
+  selector: 'counter'
+  template: `...`
+})
+export class CounterCmp {
+  @Input() counterValue = 0;
+}
+				</code></pre>
+				<pre class="fragment"><code class="hljs typescript">&lt;counter [counterValue]=&quot;10&quot;&gt;&lt;/counter&gt;</code></pre>
+			</section>
+			<section>
+				<h3>Inputs(s) with Alias</h3>
+				<pre><code class="hljs typescript">
+import {Component, Input} from 'angular2/core';
+
+@Component({
+  selector: 'counter'
+  template: `...`
+})
+export class CounterCmp {
+  @Input('start') counterValue = 0;
+}
+				</code></pre>
+				<pre class="fragment"><code class="hljs typescript">&lt;counter [start]=&quot;10&quot;&gt;&lt;/counter&gt;</code></pre>
+			</section>
+			<section>
+				<h3>Output(s) as Events !</h3>
+				<pre class="fragment"><code class="hljs typescript">
+import {Component, Input} from 'angular2/core';
+
+@Component({
+  selector: 'counter'
+  template: `...`
+})
+export class CounterCmp {
+  @Input('start') counterValue = 0;
+  @Output() stateEmitter = new EventEmitter&lt;State&gt;();
+}
+				</code></pre>
+				<pre class="fragment"><code class="hljs html">&lt;counter [start]=&quot;10&quot; (stateEmitter)=&quot;show($event)&quot;&gt;&lt;/counter&gt;</code></pre>
+			</section>
+			<section>
+				<h3>Output(s) with alias too (of course...)</h3>
+				<pre class="fragment"><code class="hljs typescript">
+import {Component, Input} from 'angular2/core';
+
+@Component({
+  selector: 'counter'
+  template: `...`
+})
+export class CounterCmp {
+  @Input('start') counterValue = 0;
+  @Output('finish') stateEmitter = new EventEmitter&lt;State&gt;();
+
+  finish() {
+    this.stateEmitter.emit(myState);
+  }
+}
+				</code></pre>
+				<pre class="fragment"><code class="hljs html">&lt;counter [start]=&quot;10&quot; (finish)=&quot;show($event)&quot;&gt;&lt;/counter&gt;</code></pre>
+			</section>
+			<section>
+				<h3>Bi-Directional communication</h3>
+				<ul>
+					<li>[Input] as data-binding</li>
+					<li>(Output) as event-binding</li>
+				</ul>
 			</section>
 		</section>
 	</div>
