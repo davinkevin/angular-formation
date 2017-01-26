@@ -739,6 +739,42 @@ export class CounterCmp {
 			</section>
 			<section data-background="img/anatomy_of_a_component/template/twowaybinding.png">&nbsp;</section>
 		</section>
+		<section id="injectable">
+			<section>
+				<h3>Including the business logic in service</h3>
+				<p class="fragment">And use DI everywhere !</p>
+			</section>
+			<section>
+				<h3>Create an <span style="font-style: italic;">injectable</span> service</h3>
+				<pre><code class="hljs typescript" data-noescape>
+<span class="fragment">@Injectable</span>
+export class MyService {}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Register it in providers</h3>
+				<pre><code class="hljs typescript" data-noescape>
+import {MyService} from './my.service.ts';
+
+...
+
+providers : [ <span class="fragment">MyService</span> ]
+
+				</code></pre>
+			</section>
+			<section>
+				<h3>Inject it !</h3>
+				<pre><code class="hljs typescript" data-noescape>
+import { Component } from 'angular2/core';
+<span data-fragment-index="1" class="fragment">import {MyService} from './my.service.ts';</span>
+
+@Component({...})
+export class TodoComp {
+  <span data-fragment-index="1" class="fragment">constructor(private myService: MyService){}</span>
+}
+				</code></pre>
+			</section>
+		</section>
 	</div>
 </div>
 
