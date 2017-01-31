@@ -757,6 +757,70 @@ export class CounterCmp {
 				<h3>Not only for feature, also for libs</h3>
 				<p>The NgModule will be the entry-point of a lib in Angular</p>
 			</section>
+			<section>
+				<p>NgModule property</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+  declarations: [],
+  providers: [],
+  entryComponents: [],
+  bootstrap: [],
+  imports: [],
+  exports: [],
+  schemas:[]
+})
+export class AppModule { }
+				</code></pre>
+			</section>
+			<section>
+				<p>NgModule sample</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+  declarations: [
+    AppComponent, FlavorsComponent
+  ],
+  imports: [
+    /* Main */      BrowserModule, FormsModule, HttpModule,
+    /* Routes */    AppRoutesModules,
+    /* Shared */    SharedModule,
+    /* Features */  OrderModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+				</code></pre>
+			</section>
+			<section>
+				<p><code>NgModule</code> Declarations</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+ declarations: [ AppComponent, FlavorsComponent ]
+})
+export class DeclarationModule{}
+				</code></pre>
+				<p class="fragment">Declare all element available in this module for Compilation</p>
+			</section>
+			<section>
+				<p><code>NgModule</code> Providers</p>
+				<pre><code>
+@NgModule({
+ providers: [FooService]
+})
+export class ProviderModule{}
+				</code></pre>
+				<p class="fragment">It allows to define the list of element available for Dependency Injection (DI)</p>
+			</section>
+			<section>
+				<p><code>NgModule</code> Bootstrap</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+ bootstrap: [AppComponent]
+})
+export class BoottrapModule{}
+				</code></pre>
+				<p class="fragment">Defines the components that should be bootstrapped when this module is bootstrapped</p>
+			</section>
 		</section>
 		<section id="injectable">
 			<section>
