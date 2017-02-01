@@ -100,6 +100,9 @@
   align-items: center;
   align-content: stretch; }
 
+.reveal #modules .schemas .possibility {
+  font-size: 28px; }
+
 .reveal .muted {
   color: #999999; }
 

@@ -786,7 +786,7 @@ export class AppModule { }
     /* Features */  OrderModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
 				</code></pre>
@@ -805,21 +805,64 @@ export class DeclarationModule{}
 				<p><code>NgModule</code> Providers</p>
 				<pre><code>
 @NgModule({
- providers: [FooService]
+ providers: [ FooService ]
 })
 export class ProviderModule{}
 				</code></pre>
 				<p class="fragment">It allows to define the list of element available for Dependency Injection (DI)</p>
 			</section>
 			<section>
+				<p><code>NgModule</code> EntryComponents</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+ entryComponents: [ AppComponent ]
+})
+export class EntryComponentsModule{}
+				</code></pre>
+				<p class="fragment">Specifies a list of components that should be compiled when this module is defined</p>
+			</section>
+			<section>
 				<p><code>NgModule</code> Bootstrap</p>
 				<pre><code class="hljs typescript">
 @NgModule({
- bootstrap: [AppComponent]
+ bootstrap: [ AppComponent ]
 })
-export class BoottrapModule{}
+export class BootstrapModule{}
 				</code></pre>
 				<p class="fragment">Defines the components that should be bootstrapped when this module is bootstrapped</p>
+				<p class="fragment">They will be added automatically to EntryComponents</p>
+			</section>
+			<section>
+				<p><code>NgModule</code> Imports & Exports</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+ exports: [ ASpecialComponent ]
+ declarations: [ AnoTSoSpecialComponent ]
+})
+export class ExportsModule{}
+
+@NgModule({
+ imports: [ ExportsModule ]
+})
+export class ImportsModule{}
+				</code></pre>
+				<p class="fragment">Allow to import all exported element from another <code>NgModule</code></p>
+			</section>
+			<section class="schemas">
+				<p><code>NgModule</code> Schemas</p>
+				<pre><code class="hljs typescript">
+@NgModule({
+ schemas: [ NO_ERRORS_SCHEMA ]
+})
+export class BootstrapModule{}
+				</code></pre>
+				<div class="possibility">
+					<p>Allow to configure the behavior of the Angular Compiler (SchemaMetadata)</p>
+					<ul>
+						<li><code>NO_ERRORS_SCHEMA</code> : totally lax </li>
+						<li><code>CUSTOM_ELEMENTS_SCHEMA</code> : only custom elements</li>
+					</ul>
+				</div>
 			</section>
 		</section>
 		<section id="injectable">
@@ -865,7 +908,6 @@ export class TodoComp {
 				<img data-fragment-index="1" class="fragment" src="img/injector/dagger.png" alt="dagger">
 			</section>
 		</section>
-
 	</div>
 </div>
 
