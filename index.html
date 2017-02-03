@@ -872,7 +872,11 @@ export class BootstrapModule{}
 			</section>
 			<section>
 				<h3>How does an Angular app start ?</h3>
-
+				<!-- TODO : JIT Mode graphic -->
+			</section>
+			<section>
+				<h3>How does AoT change the things</h3>
+				<!-- TODO : AoT Mode graphic -->
 			</section>
 		</section>
 		<section id="injectable">
@@ -916,6 +920,21 @@ export class TodoComp {
 				<h3>Hierarchical Injector</h3>
 				<p class="fragment" data-fragment-index="1">The injector of Angular is inspirited by Dagger</p>
 				<img data-fragment-index="1" class="fragment" src="img/injector/dagger.png" alt="dagger">
+			</section>
+			<section>
+				<h3>We can declare a provider with multiple syntax</h3>
+				<pre><code data-noescape>
+providers : [
+ <span class="fragment">MyService // TypeProvider</span>
+ <span class="fragment">{ provide: 'withValue', useValue: 'Foo !' } // ValueProvider</span>
+ <span class="fragment">{ provide: 'withClass', useClass: MyService } // ClassProvider</span>
+ <span class="fragment">{ provide: 'aliasing', useExisting: MyService } // ExistingProvider</span>
+ <span class="fragment">{ provide: 'withFactory',
+   useFactory: (l: string) => l.split(' ')[0],
+   deps: ['withValue']
+ } // FactoryProvider</span>
+]
+				</code></pre>
 			</section>
 		</section>
 	</div>
