@@ -603,8 +603,8 @@ export class TodoComp {
 			<section>
 				<h3>Using a service in my component</h3>
 				<pre><code class="hljs javascript">
-import { Component } from 'angular2/core';
-import { MyService } from './myservice';
+import {Component} from 'angular2/core';
+import {MyService} from './myservice';
 
 @Component({
  selector: 'todo',
@@ -613,7 +613,7 @@ import { MyService } from './myservice';
 export class TodoComp {
   title : String = 'A super presentation !!';
 
-  constructor(private _myService : MyService){} // DI by constructor
+  constructor(private myService: MyService){} // DI by constructor
 }
 				</code></pre>
 			</section>
@@ -632,19 +632,21 @@ export class TodoComp {
 			</section>
 			<section>
 				<h3>And we can use Interface to declare it</h3>
-				<pre><code class="hljs typescript">
-import { Component } from 'angular2/core';
+				<pre><code class="hljs typescript" data-noescape>
+import { Component<span data-fragment-index="1" class="fragment">, OnInit</span> } from 'angular2/core';
 import { MyService } from './myservice';
 
 @Component({
  selector: 'todo',
  template: `&lt;h1&gt;{{ title }}&lt;/h1&gt; &lt;emitter&gt;&lt;/emitter&gt;`,
 })
-export class TodoComp implements OnInit {
+export class TodoComp <span data-fragment-index="1" class="fragment">implements OnInit</span> {
   title : String = 'A super presentation !!';
-  constructor(private _myService : MyService){}
+  constructor(private myService: MyService){}
 
-  ngOnInit() { console.log('The Component is initialised'); }
+  <span data-fragment-index="2" class="fragment">ngOnInit() {
+   console.log('The Component is initialised');
+  }</span>
 }
 				</code></pre>
 			</section>
@@ -882,7 +884,8 @@ export class BootstrapModule{}
 		<section id="injectable">
 			<section>
 				<h3>Including the business logic in service</h3>
-				<p class="fragment">And use DI everywhere !</p>
+				<img src="img/injector/decouple.jpg" alt="decouple all the things">
+				<p>And use DI everywhere !</p>
 			</section>
 			<section>
 				<h3>Create an <span style="font-style: italic;">injectable</span> service</h3>
@@ -905,7 +908,7 @@ providers : [ <span class="fragment">MyService</span> ]
 			<section>
 				<h3>Inject it !</h3>
 				<pre><code class="hljs typescript" data-noescape>
-import { Component } from 'angular2/core';
+import {Component} from 'angular2/core';
 <span data-fragment-index="1" class="fragment">import {MyService} from './my.service.ts';</span>
 
 @Component({...})
@@ -913,13 +916,6 @@ export class TodoComp {
   <span data-fragment-index="1" class="fragment">constructor(private myService: MyService){}</span>
 }
 				</code></pre>
-			</section>
-		</section>
-		<section id="injector">
-			<section>
-				<h3>Hierarchical Injector</h3>
-				<p class="fragment" data-fragment-index="1">The injector of Angular is inspirited by Dagger</p>
-				<img data-fragment-index="1" class="fragment" src="img/injector/dagger.png" alt="dagger">
 			</section>
 			<section>
 				<h3>We can declare a provider with multiple syntax</h3>
@@ -935,6 +931,41 @@ providers : [
  } // FactoryProvider</span>
 ]
 				</code></pre>
+			</section>
+			<section>
+				<h3>Inject it with OpaqueToken</h3>
+				<pre><code class="hljs typescript" data-noescape>
+import {Component<span data-fragment-index="1" class="fragment">, Inject</span>} from 'angular2/core';
+import {MyService} from './my.service.ts';
+
+@Component({...})
+export class TodoComp {
+  constructor(<span data-fragment-index="1" class="fragment">@Inject('withClass')</span> private myService: MyService){}
+}
+				</code></pre>
+			</section>
+		</section>
+		<section id="injector">
+			<section>
+				<h3>Hierarchical Injector</h3>
+				<p class="fragment" data-fragment-index="1">The injector of Angular is inspirited by Dagger</p>
+				<img data-fragment-index="1" class="fragment" src="img/injector/dagger.png" alt="dagger">
+			</section>
+			<section>
+				<h3>Scope of an <code>Injector</code></h3>
+				<img src="img/anatomy_of_an_angular_app/tree.svg" alt="tree">
+			</section>
+			<section>
+				<h3><code>@NgModule</code></h3>
+				<p>Each element in <code>provider</code> of <code>@NgModule</code> will be a singleton available in all loaded element</p>
+			</section>
+			<section>
+				<h3><code>@Component</code></h3>
+				<p>A component has it's own <code>provider</code> which allow to have singleton between the current element and its children</p>
+			</section>
+			<section>
+				<h3>Async <code>@NgModule</code></h3>
+				<p>An async <code>@NgModule</code> always have its own injector with every elements of <code>providers</code> as <b>new</b> singleton !</p>
 			</section>
 		</section>
 	</div>
