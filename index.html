@@ -741,6 +741,100 @@ export class CounterCmp {
 			</section>
 			<section data-background="img/anatomy_of_a_component/template/twowaybinding.png">&nbsp;</section>
 		</section>
+		<section>
+			<section>
+				<h3>Styling components in Angular</h3>
+				<img src="img/anatomy_of_a_component/styling/styling.gif" alt="styling">
+			</section>
+			<section>
+				<h3>Inline style</h3>
+				<pre><code class="hljs typescript" data-noescape>
+@Component({
+  selector: 'style-comp',
+  templateUrl: '&lt;div class=&quot;my-comp&quot;&gt;An encapsulated comp&lt;/div&gt;',
+  styles: [`.my-comp { background: green; }`]
+})
+export class CssComp {}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Remote style</h3>
+				<pre><code class="hljs typescript" data-noescape>
+@Component({
+  selector: 'style-comp',
+  templateUrl: '&lt;div class=&quot;my-comp&quot;&gt;An encapsulated comp&lt;/div&gt;',
+  styleUrls: ['./css.component.css']
+})
+export class CssComp {}
+				</code></pre>
+			</section>
+			<section>
+				<h3>View Encapsulation mode</h3>
+				<p>We can encapsulate everything</p>
+				<p>and we can do it by multiple way</p>
+			</section>
+			<section>
+				<h3>Definition of style in Component</h3>
+				<pre><code class="hljs typescript" data-noescape>
+import {ViewEncapsulation} from 'angular2/core';
+
+@Component({
+  selector: 'style-comp',
+  templateUrl: '&lt;div class=&quot;my-comp&quot;&gt;An encapsulated comp&lt;/div&gt;',
+  styles: [`.my-comp { background: green; }`],
+  <span class="fragment">encapsulation: ViewEncapsulation.Emulated <span class="fragment">// Default behaviour</span></span>
+})
+export class CssComp {}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Emulated</h3>
+				<p>Which is the default encapsulation system</p>
+				<pre class="fragment"><code class="hljs">
+&lt;head&gt;
+ &lt;style&gt;.my-comp[_ngcontent-1] {background: green;}&lt;/style&gt;
+&lt;/head&gt;
+				</code></pre>
+				<pre class="fragment"><code class="hljs">
+&lt;style-comp _ngcontent-0 _nghost-1&gt;
+ &lt;div class=&quot;my-comp&quot; _ngcontent-1&gt;
+  An encapsulated comp
+ &lt;/div&gt;
+&lt;/style-comp&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>Native</h3>
+				<p>Which uses the Shadow-DOM</p>
+				<pre><code>encapsulation: ViewEncapsulation.Native</code></pre>
+				<pre class="fragment"><code class="hljs html">
+&lt;style-comp&gt;
+ #shadow-root
+ | &lt;style&gt;
+ |  .my-comp { background: green; }
+ | &lt;/style&gt;
+ | &lt;div class=&quot;my-comp&quot;&gt;An encapsulated comp&lt;/div&gt;
+&lt;/style-comp&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>None</h3>
+				<p>Take care of Side effect !</p>
+				<pre><code>encapsulation: ViewEncapsulation.None</code></pre>
+				<pre class="fragment"><code class="hljs html">
+&lt;head&gt;
+ &lt;style&gt;.my-comp {background: green;}&lt;/style&gt;
+&lt;/head&gt;
+				</code></pre>
+				<pre class="fragment"><code class="hljs html">
+&lt;style-comp _nghost-1&gt;
+ &lt;div class=&quot;my-comp&quot;&gt;
+  An encapsulated comp
+ &lt;/div&gt;
+&lt;/style-comp&gt;
+				</code></pre>
+			</section>
+		</section>
 		<section id="modules">
 			<section>
 				<h3>Angular @NgModule</h3>
