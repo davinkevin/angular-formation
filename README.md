@@ -34,7 +34,7 @@ You can check if the install is correct by executing the following command in a 
 
 ```shell
 $ node -v
-v6.5.0
+v6.9.1
 ```
 
 ##### NPM 
@@ -45,7 +45,7 @@ You can check if NPM is correctly installed by execution the folowing command :
 
 ```shell
 $ npm -v
-3.10.3
+3.10.10
 ```
 
 ##### YARN  
@@ -64,7 +64,7 @@ You can check the correct installation of YARN by execution the following comman
 
 ```shell
 $ yarn -V
-0.18.1
+0.19.1
 ```
  
 ##### AngularCLI
@@ -74,15 +74,22 @@ The AngularCLI is a simple NodeJS project which could be installed by following 
 To simplify, a standard installation should be : 
 
 ```shell
-$ npm install -g angular-cli@latest
+$ npm install -g @angular/cli
 ```
 
-You can check the correct installation of the AngularCLI by execution the following command (the result depends of the AngularCLI Version)
+You can check the correct installation of the AngularCLI by execution the following command (the result depends of the AngularCLI, node and os version)
 
 ```shell
 $ ng -v
-angular-cli: 1.0.0-beta.24
-node: 6.5.0
+
+                             _                           _  _
+  __ _  _ __    __ _  _   _ | |  __ _  _ __         ___ | |(_)
+ / _` || '_ \  / _` || | | || | / _` || '__|_____  / __|| || |
+| (_| || | | || (_| || |_| || || (_| || |  |_____|| (__ | || |
+ \__,_||_| |_| \__, | \__,_||_| \__,_||_|          \___||_||_|
+               |___/
+@angular/cli: 1.0.0-beta.30
+node: 6.9.1
 os: darwin x64
 ```
 
