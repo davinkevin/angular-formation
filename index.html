@@ -1061,7 +1061,71 @@ export class TodoComp {
 				<p>Lazy event stream</p>
 				<p class="fragment">[Available outside Angular for any JS app]</p>
 			</section>
+		</section>
+		<section id="angular_is_relying_on__zonesjs">
+				<section>
+					<h3>Zones.js</h3>
+					<p>Zones are simply an <b>Execution context</b> for Javascript</p>
+				</section>
+				<section data-background-image="img/zones.js/explosion.gif"><p>&nbsp;</p></section>
+				<section data-transition="none-in">
+					<h3>Zones.js</h3>
+					<p>Zones are simply an <b>Execution context</b> for Javascript</p>
+					<p>It helps to handle asynchronous code in JS</p>
+					<p>Extract from <b>Dart Lang</b>, alternative to <i>Domains</i> in NodeJS</p>
+				</section>
+				<section>
+					<h3><a target="_blank" href="examples/zones/javascript.101.html">Javascript 101</a></h3>
+					<pre><code class="hljs javascript" data-trim>
+let cf = (name) => () => console.log(name);
+var a = cf('a'), b = cf('b'), c = cf('c'), d = cf('d');
 
+a();
+setTimeout(b, 0);
+setTimeout(c, 0);
+d();
+					</code></pre>
+					<div class="fragment" data-fragment-index="0">
+						<p>Results to </p>
+						<pre><code class="hljs javascript" data-trim data-noescape>
+<span class="fragment" data-fragment-index="1">a</span>
+<span class="fragment" data-fragment-index="2">d</span>
+<span class="fragment" data-fragment-index="3">b</span>
+<span class="fragment" data-fragment-index="4">c</span>
+						</code></pre>
+					</div>
+					<p class="fragment">All the async tasks are added to the event queue and executed when other tasks are finished</p>
+				</section>
+				<section>
+					<h3>How long does it take ?</h3>
+					<pre><code class="hljs javascript" data-trim>
+start();
+a();
+setTimeout(b, 0);
+setTimeout(c, 0);
+d();
+stop();
+					</code></pre>
+					<div class="fragment">
+						<p>Results :</p>
+						<pre><code class="hljs javascript" data-trim>
+// Start
+a
+d
+// Stop
+b // Missed
+c // Missed
+						</code></pre>
+					</div>
+				</section>
+				<section data-transition="none-out">
+					<h3><a href="examples/zones/sort-async.html">What need to be done ?</a></h3>
+					<img src="img/zones.js/execution-without-zones.png" alt="no-zones">
+				</section>
+				<section data-transition="none">
+					<h3><a href="examples/zones/sort-async.html">What need to be done ?</a></h3>
+					<img src="img/zones.js/execution-in-zones.png" alt="with-zones">
+				</section>
 		</section>
 		<section id="angular_is_relying_on__injector">
 			<section>
