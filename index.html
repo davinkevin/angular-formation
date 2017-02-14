@@ -1227,7 +1227,7 @@ foo.bar$ // An Observable
 let obs$ = Observable.from(1, 2, 3, 4, 5);
 obs$.subscribe(x => console.log(x)); // 1, 2, 3, 4, 5
 
-let evenObs$ = obs.filter(x => x % 2 == 0 ));
+let evenObs$ = obs$.filter(x => x % 2 == 0 ));
 evenObs$.subscribe(x => console.log(x)) // 2, 4
 evenObs$.map(x => x*2).subscribe(x => console.log(x)) // 4, 8
 				</code></pre>
