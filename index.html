@@ -961,6 +961,72 @@ export class BootstrapModule{}
 				</div>
 			</section>
 		</section>
+		<section id="modules__interresting_modules">
+			<section>
+				<h3>Important module for your App</h3>
+			</section>
+			<section>
+				<h3><code>CommonModule</code></h3>
+				<pre><code class="hljs typescript">
+@NgModule({
+  declarations: [COMMON_DIRECTIVES, COMMON_PIPES],
+  exports: [COMMON_DIRECTIVES, COMMON_PIPES],
+  providers: [
+    {provide: NgLocalization, useClass: NgLocaleLocalization},
+  ],
+})
+class CommonModule {}
+				</code></pre>
+				<p class="fragment">The module that includes all the basic Angular directives like NgIf, NgFor, ...</p>
+			</section>
+			<section>
+				<h3><code>BrowserModule</code></h3>
+				<pre><code class="hljs typescript">
+@NgModule({
+  providers: [
+    BROWSER_SANITIZATION_PROVIDERS, {provide: ErrorHandler, useFactory: errorHandler, deps: []},
+    {provide: DOCUMENT, useFactory: _document, deps: []},
+    {provide: EVENT_MANAGER_PLUGINS, useClass: DomEventsPlugin, multi: true},
+    {provide: EVENT_MANAGER_PLUGINS, useClass: KeyEventsPlugin, multi: true},
+    {provide: EVENT_MANAGER_PLUGINS, useClass: HammerGesturesPlugin, multi: true},
+    {provide: HAMMER_GESTURE_CONFIG, useClass: HammerGestureConfig},
+    {provide: DomRootRenderer, useClass: DomRootRenderer_},
+    {provide: RootRenderer, useExisting: DomRootRenderer},
+    {provide: SharedStylesHost, useExisting: DomSharedStylesHost},
+    {provide: AnimationDriver, useFactory: _resolveDefaultAnimationDriver}, DomSharedStylesHost,
+    Testability, EventManager, ELEMENT_PROBE_PROVIDERS, Title
+  ],
+  exports: [CommonModule, ApplicationModule]
+})
+class BrowserModule {}
+				</code></pre>
+				<p class="fragment">The ng module for the browser which exports <code>CommonModule</code></p>
+			</section>
+			<section>
+				<h3><code>FormsModule</code></h3>
+				<pre><code class="hljs typescript">
+@NgModule({
+  declarations: TEMPLATE_DRIVEN_DIRECTIVES,
+  providers: [RadioControlRegistry],
+  exports: [InternalFormsSharedModule, TEMPLATE_DRIVEN_DIRECTIVES]
+})
+class FormsModule {}
+				</code></pre>
+				<p class="fragment">All element needed for form declaration in HTML</p>
+			</section>
+			<section>
+				<h3><code>ReactiveFormsModule</code></h3>
+				<pre><code class="hljs typescript">
+@NgModule({
+  declarations: [REACTIVE_DRIVEN_DIRECTIVES],
+  providers: [FormBuilder, RadioControlRegistry],
+  exports: [InternalFormsSharedModule, REACTIVE_DRIVEN_DIRECTIVES]
+})
+class ReactiveFormsModule {}
+				</code></pre>
+				<p class="fragment">All element needed for form declaration in code-style</p>
+			</section>
+		</section>
 		<section id="compilation">
 			<section>
 				<h3>Compilation</h3>
