@@ -1355,6 +1355,39 @@ evenObs$.map(x => x*2).subscribe(x => console.log(x)) // 4, 8
 				<h3>The Router</h3>
 			</section>
 			<section data-background-image="img/routing/router.jpg"></section>
+			<section>
+				<h3>of course, it's a module !</h3>
+				<pre><code class="hljs typescript">
+import { RouterModule } from '@angular/router';
+				</code></pre>
+				<p>But we need to register it with a parameter...</p>
+			</section>
+			<section>
+				<h3>Defining Route(s)</h3>
+				<pre><code class="hljs typescript">
+const routes: Routes = [
+  { path: 'foo', component: FooComp },
+  { path: 'bar/:id', component: BarComp },
+  { path: 'others', component: OthersComp,
+	data: { title: 'Others List' } },
+  { path: '', redirectTo: '/foo', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
+				</code></pre>
+			</section>
+			<section>
+				<h3>Registering the routes</h3>
+				<pre><code class="hljs typescript">
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+    ...
+  ],
+  ...
+})
+export class RouteModule {}
+				</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
