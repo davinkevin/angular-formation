@@ -1367,7 +1367,6 @@ import { RouterModule } from '@angular/router';
 				<pre><code class="hljs typescript">
 const routes: Routes = [
   { path: 'foo', component: FooComp },
-  { path: 'bar/:id', component: BarComp },
   { path: 'others', component: OthersComp,
 	data: { title: 'Others List' } },
   { path: '', redirectTo: '/foo', pathMatch: 'full' },
@@ -1386,6 +1385,20 @@ const routes: Routes = [
   ...
 })
 export class RouteModule {}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Router outlet</h3>
+				<pre><code class="hljs html">
+&ltheader&gt
+	...
+&lt/header&gt 
+&ltmain&gt 
+	&ltrouter-outlet&gt&lt/router-outlet&gt 
+&lt/main&gt 
+&ltfooter&gt
+	...
+&lt/footer&gt
 				</code></pre>
 			</section>
 		</section>
