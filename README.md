@@ -34,7 +34,7 @@ You can check if the install is correct by executing the following command in a 
 
 ```shell
 $ node -v
-v6.9.1
+v7.6.0
 ```
 
 ##### NPM 
@@ -45,7 +45,7 @@ You can check if NPM is correctly installed by execution the folowing command :
 
 ```shell
 $ npm -v
-3.10.10
+4.1.2
 ```
 
 ##### YARN  
@@ -64,7 +64,7 @@ You can check the correct installation of YARN by execution the following comman
 
 ```shell
 $ yarn -V
-0.19.1
+0.20.3
 ```
  
 ##### AngularCLI
@@ -89,7 +89,7 @@ $ ng -v
  \__,_||_| |_| \__, | \__,_||_| \__,_||_|          \___||_||_|
                |___/
 @angular/cli: 1.0.0-beta.32.3
-node: 6.5.0
+node: 7.6.0
 os: darwin x64
 ```
 
