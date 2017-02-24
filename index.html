@@ -1390,15 +1390,62 @@ export class RouteModule {}
 			<section>
 				<h3>Router outlet</h3>
 				<pre><code class="hljs html">
-&ltheader&gt
-	...
-&lt/header&gt 
-&ltmain&gt 
-	&ltrouter-outlet&gt&lt/router-outlet&gt 
-&lt/main&gt 
-&ltfooter&gt
-	...
-&lt/footer&gt
+&lt;header&gt; ... &lt;/header&gt;
+&lt;main&gt;
+ &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/main&gt;
+&lt;footer&gt; ... &lt;/footer&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>Child route</h3>
+				<p>We can now create multi level routes and share page context</p>
+				<pre><code class="hljs typescript">
+const routes: Routes = [
+  { path: 'users', component: UsersComp
+	children : [
+     { path: '', component: UsersListComp },
+     { path: ':id', component: UsersDetailComp },
+   ]
+  },
+];
+				</code></pre>
+			</section>
+			<section>
+				<h3>Multi level with multi <code>router-outlet</code></h3>
+				<pre><code class="hljs html">
+&lt;!-- UsersComp Template --&gt;
+&lt;user-module-header&gt;&lt;/user-module-header&gt;
+
+ &lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+&lt;user-module-footer&gt;&lt;/user-module-footer&gt;
+				</code></pre>
+				<pre><code class="hljs html">
+&lt;!-- UsersListComp Template --&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>Multi level with multi <code>router-outlet</code></h3>
+				<pre><code class="hljs html">
+&lt;header&gt; ... &lt;/header&gt;
+&lt;main&gt;
+ &lt;router-outlet&gt;
+  &lt;user-module-header&gt;&lt;/user-module-header&gt;
+   &lt;router-outlet&gt;
+    &lt;ul&gt;
+     &lt;li&gt;&lt;/li&gt;
+     &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+   &lt;/router-outlet&gt;
+  &lt;user-module-footer&gt;&lt;/user-module-footer&gt;
+ &lt;/router-outlet&gt;
+&lt;/main&gt;
+&lt;footer&gt; ... &lt;/footer&gt;
 				</code></pre>
 			</section>
 		</section>
