@@ -93,6 +93,11 @@ node: 7.6.0
 os: darwin x64
 ```
 
+and finally, activate yarn by default on the CLI : 
+```shell
+ng set --global packageManager=yarn
+```
+
 #### Evergreen Browser
 
 You need to have on your computer a, so called, evergreen browser, which represents the top last version of Chrome, Firefox or Edge. You can realise the Practical work on any of this browser
