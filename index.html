@@ -1416,9 +1416,7 @@ const routes: Routes = [
 				<pre><code class="hljs html">
 &lt;!-- UsersComp Template --&gt;
 &lt;user-module-header&gt;&lt;/user-module-header&gt;
-
  &lt;router-outlet&gt;&lt;/router-outlet&gt;
-
 &lt;user-module-footer&gt;&lt;/user-module-footer&gt;
 				</code></pre>
 				<pre><code class="hljs html">
@@ -1446,6 +1444,17 @@ const routes: Routes = [
  &lt;/router-outlet&gt;
 &lt;/main&gt;
 &lt;footer&gt; ... &lt;/footer&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h3>Create a link to specific route</h3>
+				<p>In HTML, like a simple <code>&lt;a&gt;</code></p>
+				<pre><code class="hljs html">
+&lt;a routerLink="/users"&gt;Users&lt;/a&gt;
+&lt;a [routerLink]="['/users']"&gt;Users&lt;/a&gt;
+&lt;a [routerLink]="['/users', 1]"&gt;User #1&lt;/a&gt;
+&lt;a [routerLink]="['/users', 1, 'stats']"&gt;User #1 stats&lt;/a&gt;
+&lt;a [routerLink]="['/users', 1, {foo:'bar'}]"&gt;User #1 with params&lt;/a&gt;
 				</code></pre>
 			</section>
 		</section>
