@@ -1457,6 +1457,18 @@ const routes: Routes = [
 &lt;a [routerLink]="['/users', 1, {foo:'bar'}]"&gt;User #1 with params&lt;/a&gt;
 				</code></pre>
 			</section>
+			<section>
+				<h3>Navigate from code</h3>
+				<p>We can use the component logic in typscript to navigate</p>
+				<pre><code class="hljs typescript">
+constructor(private router: Router) {}
+
+redirectTo(user: User) {
+ this.router.navigate(['/users', user.id]);
+}
+				</code></pre>
+				<a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html#!#navigate-anchor">Router Service documentation</a>
+			</section>
 		</section>
 	</div>
 </div>
