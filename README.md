@@ -58,7 +58,7 @@ You can install YARN by using NPM with the following command
 $ npm install -g yarn
 ```
 
-Depending of your plateform, this command should be launched with admin rights (sudo for Mac & Linux for example).
+Depending of your platform, this command should be launched with admin rights (sudo for Mac & Linux for example).
 
 You can check the correct installation of YARN by execution the following command
 
@@ -113,7 +113,7 @@ To do that, I recommend to use JetBrains WebStorm (under license, free trial of 
 
 You can use Microsoft VSCode, which is open source
  
-If you have a preference for another environement, free to you to use it, but a lot of the PW will be simpler if you have auto-complete, IDE help and other stuff provided by a powerfull environement... 
+If you have a preference for another environment, free to you to use it, but a lot of the PW will be simpler if you have auto-complete, IDE help and other stuff provided by a powerfull environement... 
 
 ##### Git
 
