@@ -103,6 +103,9 @@
 .reveal #modules .schemas .possibility {
   font-size: 28px; }
 
+.reveal #routing__parameters .activated_route ul li {
+  font-size: 70%; }
+
 .reveal .muted {
   color: #999999; }
 
