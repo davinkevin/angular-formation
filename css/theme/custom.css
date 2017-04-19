@@ -100,6 +100,9 @@
   align-items: center;
   align-content: stretch; }
 
+.reveal .router.activated-route .comment {
+  font-size: 3vh; }
+
 .reveal #modules .schemas .possibility {
   font-size: 28px; }
 

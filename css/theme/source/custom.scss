@@ -141,6 +141,13 @@
       align-content: stretch;
     }
   }
+  .router {
+    &.activated-route {
+      .comment {
+        font-size: 3vh;
+      }
+    }
+  }
   #modules {
     .schemas .possibility {
       font-size: 28px;

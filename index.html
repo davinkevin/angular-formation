@@ -1470,28 +1470,59 @@ redirectTo(user: User) {
 				<a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html#!#navigate-anchor">Router Service documentation</a>
 			</section>
 		</section>
-		<section id="routing__parameters" >
-			<section data-background-image="img/routing/matrix.gif">
-				<h3>Using the route information</h3>
+		<section>
+			<section>
+				<h3>Route parameters in <code>Component</code></h3>
+				<p>We can access the current route by DI in our component</p>
+				<pre><code class="hljs typescript">
+constructor(private route: ActivatedRoute) {}
+
+ngOnInit(): void {
+	this.route.data
+		.map(d => &ltany&gtd.flavors)
+		.subscribe(f => this.flavors = f);
+}
+				</code></pre>
+				<a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRoute-interface.html">ActivatedRoute documentation</a>
 			</section>
-			<section class="activated_route">
-				<h3><code>ActivatedRoute</code></h3>
-				<ul>
-					<li><i>url</i>: <span class="muted">the route path(s)</span></li>
-					<li><i>data</i>: <span class="muted">the object provided for the route (std and guard)</span></li>
-					<li><i>params</i>: <span class="muted">the required and optional parameters</span></li>
-					<li><i>queryParams</i>: <span class="muted">the query parameters available to all routes.</span></li>
-					<li><i>fragment</i>: <span class="muted">the URL fragment available to all routes.</span></li>
-					<li><i>outlet</i>: <span class="muted">The name of the RouterOutlet</span></li>
-					<li><i>routeConfig</i>: <span class="muted">The route configuration</span></li>
-					<li><i>parent</i>: <span class="muted">the parent <code>ActivatedRoute</code></span></li>
-					<li><i>firstChild</i>: <span class="muted">contains the first <code>ActivatedRoute</code></span></li>
-					<li><i>children</i>: <span class="muted">contains all the child routes activated under the current route.</span></li>
-				</ul>
+            <section class="activated_route">
+                <h3><code>ActivatedRoute</code></h3>
+                <ul>
+                    <li><i>url</i>: <span class="muted">the route path(s)</span></li>
+                    <li><i>data</i>: <span class="muted">the object provided for the route (std and guard)</span></li>
+                    <li><i>params</i>: <span class="muted">the required and optional parameters</span></li>
+                    <li><i>queryParams</i>: <span class="muted">the query parameters available to all routes.</span></li>
+                    <li><i>fragment</i>: <span class="muted">the URL fragment available to all routes.</span></li>
+                    <li><i>outlet</i>: <span class="muted">The name of the RouterOutlet</span></li>
+                    <li><i>routeConfig</i>: <span class="muted">The route configuration</span></li>
+                    <li><i>parent</i>: <span class="muted">the parent <code>ActivatedRoute</code></span></li>
+                    <li><i>firstChild</i>: <span class="muted">contains the first <code>ActivatedRoute</code></span></li>
+                    <li><i>children</i>: <span class="muted">contains all the child routes activated under the current route.</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Those data are available for every component currently loaded</h3>
+                <p>From the first router-outlet to the last component leaf</p>
+            </section>
+			<section class="router activated-route">
+				<h3>ActivatedRoute</h3>
+				<p>Use <code>Observable</code> to handle modification</p>
+				<pre><code class="hljs typescript">
+interface ActivatedRoute {
+	url : Observable&ltUrlSegment[]&gt
+	params : Observable&ltParams&gt
+	queryParams : Observable&ltParams&gt
+	fragment : Observable&ltstring&gt
+	data : Observable&ltData&gt
+	paramMap : Observable&ltParamMap&gt
+	queryParamMap : Observable&ltParamMap&gt
+	...
+}
+				</code></pre>
 			</section>
 			<section>
-				<h3>Those data are available for every component currently load</h3>
-				<p>From the first router-outlet to the last component leaf</p>
+				<p>So, moving to another URL with the same component doesn't trigger a destroy & construct...</p>
+				<p class="fragment">... it just pushes a new value into the <code>Observable</code></p>
 			</section>
 		</section>
 	</div>
