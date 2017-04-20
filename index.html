@@ -1524,6 +1524,44 @@ interface ActivatedRoute {
 				<p>So, moving to another URL with the same component doesn't trigger a destroy & construct...</p>
 				<p class="fragment">... it just pushes a new value into the <code>Observable</code></p>
 			</section>
+			<section>
+				<h3>Guard</h3>
+				<p>Allow access control over specific route</p>
+				<pre><code>
+const routes: Routes = [
+	path: 'users',
+	canLoad: [CanLoadUsers],
+	component: UsersListComp
+];
+				</code></pre>
+			</section>
+			<section>
+				<h3>Defining a Guard</h3>
+				<pre><code>
+@Injectable()
+class CanLoadUsers implements CanLoad {
+
+ constructor(private permissions: Permissions, private currentUser: User) {}
+
+ canLoad(route: Route): boolean {
+  if (route.path === "contacts") {
+    return this.permissions.canLoadUsers(this.currentUser);
+  } else {
+    return false;
+  }
+ }
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Synchronous or Asynchronous Guard</h3>
+				<p>The <code>CanLoad</code> method can return different value</p>
+				<pre><code>
+interface CanLoad {
+ canLoad(route: Route): Observable&ltboolean&gt|Promise&ltboolean&gt|boolean
+}
+				</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
