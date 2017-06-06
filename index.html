@@ -1470,7 +1470,7 @@ redirectTo(user: User) {
 				<a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html#!#navigate-anchor">Router Service documentation</a>
 			</section>
 		</section>
-		<section>
+		<section id="routing_advanced">
 			<section>
 				<h3>Route parameters in <code>Component</code></h3>
 				<p>We can access the current route by DI in our component</p>
@@ -1559,6 +1559,56 @@ class CanLoadUsers implements CanLoad {
 				<pre><code>
 interface CanLoad {
  canLoad(route: Route): Observable&ltboolean&gt|Promise&ltboolean&gt|boolean
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Resolver</h3>
+				<p>Allow to fetch data before the component init itself</p>
+				<pre><code>
+@Injectable()
+export class FooResolver implements Resolve&ltFoo&gt {
+
+    constructor(private fooService: FooService) { }
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable&ltFoo&gt {
+        return this.fooService.findOne(+route.params.id);
+    }
+
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Resolver</h3>
+				<p>We define a resolver for a specific route</p>
+				<pre><code>
+export const routes: Routes = [
+  {
+    path : 'foo', component: FooComponent,
+    resolve: {
+      foos: FooResolver
+    }
+  }
+];
+				</code></pre>
+			</section>
+			<section>
+				<h3>Resolver</h3>
+				<p>And we can access its value like this</p>
+				<pre><code>
+@Component({ ... })
+export class FooComponent implements OnInit {
+
+  foos: Array&ltFoo&gt;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.data
+        .map(d => d.foos)
+        .subscribe(f => this.foos = f);
+  }
+
 }
 				</code></pre>
 			</section>
