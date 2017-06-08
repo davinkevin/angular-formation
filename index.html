@@ -1617,6 +1617,25 @@ export class FooComponent implements OnInit {
 			<section data-background-image="img/http/http.jpg">
 				<h3>Http Communication</h3>
 			</section>
+			<section>
+				<h3><code>Http</code> Service</h3>
+				<p>To communicate with 'outside' world, we only have the <code>Http</code> service</p>
+				<p class="fragment">So, no WebSocket nor Server-Sent Event for now...</p>
+			</section>
+			<section>
+				<h3><code>Http</code> Service</h3>
+				<p>This element should be imported from this own module <code>HttpModule</code></p>
+				<pre><code data-noescape>
+<span data-fragment-index="1" class="fragment">import {HttpModule} from '@angular/http';</span>
+
+@NgModule({
+  declarations: [...],
+  imports: [ <span data-fragment-index="2" class="fragment">HttpModule</span> ],
+  providers: [...]
+})
+export class FeatureModule { }
+				</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
