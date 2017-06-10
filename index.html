@@ -1636,6 +1636,72 @@ export class FooComponent implements OnInit {
 export class FeatureModule { }
 				</code></pre>
 			</section>
+			<section>
+				<h3>And simply use DI to get the service</h3>
+				<pre><code>
+import {Http} from '@angular/http';
+
+@Injectable()
+export class BookService {
+
+  constructor(private http: Http) { }
+
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Http has everything we need to make Http Request</h3>
+				<pre><code>
+class Http {
+ constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions)
+
+ request(url: string|Request, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ get(url: string, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ post(url: string, body: any, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ put(url: string, body: any, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ delete(url: string, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ patch(url: string, body: any, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ head(url: string, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+ options(url: string, options?: RequestOptionsArgs) : Observable&ltResponse&gt
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Example of <code>GET</code> request in a Service</h3>
+				<pre><code>
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map'
+
+@Injectable()
+class FooService {
+ constructor(private http: Http) {}
+
+ findOne(): Observable&ltFoo&gt {
+  return this.http.get('/a/fake/url/which/returns/foo/in/json')
+   .map(res => res.json())
+ }
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Get result of Http Request from a service</h3>
+				<pre><code>
+import {FooService} from './foo.service.ts';
+
+@Component({...})
+class FooComponent implements OnInit {
+ foo: Foo;
+
+ constructor(private fooService: FooService) {}
+
+ ngOnInit() {
+  this.fooService.findAll()
+    .subscribe(f => this.foo = f);
+ }
+}
+				</code></pre>
+			</section>
+
 		</section>
 	</div>
 </div>
