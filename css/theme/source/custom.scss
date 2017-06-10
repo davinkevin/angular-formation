@@ -141,6 +141,15 @@
       align-content: stretch;
     }
   }
+  .testing-framework {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-around;
+      align-items:center;
+      align-content: stretch;
+    }
+  }
   .router {
     &.activated-route {
       .comment {

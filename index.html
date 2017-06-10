@@ -1625,8 +1625,7 @@ export class FooComponent implements OnInit {
 			<section>
 				<h3><code>Http</code> Service</h3>
 				<p>This element should be imported from this own module <code>HttpModule</code></p>
-				<pre><code data-noescape>
-<span data-fragment-index="1" class="fragment">import {HttpModule} from '@angular/http';</span>
+				<pre><code data-noescape><span data-fragment-index="1" class="fragment">import {HttpModule} from '@angular/http';</span>
 
 @NgModule({
   declarations: [...],
@@ -1701,7 +1700,82 @@ class FooComponent implements OnInit {
 }
 				</code></pre>
 			</section>
+		</section>
+		<section>
+			<section data-background-image="/img/testing/testing.gif">&nbsp;</section>
+			<section>
+				<h3>Everything is <b>testable</b> in Angular</h3>
+				<p class="fragment">Thanks to DI, Zones and amazing testing framework</p>
+			</section>
+			<section class="testing-framework">
+				<h4>Karma | Jasmine</h4>
+				<div class="container">
+					<img src="img/testing/karma_logo.svg" alt="karma" height="100vh">
+					<img src="img/testing/jasmine_logo.svg" alt="jasmine" height="100vh">
+				</div>
+			</section>
+			<section>
+				<h4>Anatomy of a test</h4>
+				<pre><code class="hljs typescript" data-noescape>
+describe("What I globally test", () => {
+ <span class="fragment" data-fragment-index="1">it("should do something", () => {
+  <span class="fragment" data-fragment-index="2">const value = 12;
+  expect(value).toEqual(12); </span>
+ }); </span>
+ <span class="fragment" data-fragment-index="3">
+ it("should do something else", () => {
+  expect(2**4).toEqual(16);
+ });</span>
+});
+				</code></pre>
+			</section>
+			<section>
+				<p>beforeEach | afterEach</p>
+				<pre><code class="hljs typescript" data-noescape>
+describe("What I globally test", () => {
+ let testValue: number;
 
+ beforeEach(() => {
+  testValue = generateNumber();
+ });
+
+ it("should do something..", () => { .. });
+
+ afterEach(() => { .. });
+});
+				</code></pre>
+			</section>
+			<section>
+				<p>beforeAll | afterAll</p>
+				<pre><code class="hljs typescript" data-noescape>
+describe("What I globally test", () => {
+ beforeAll(() => { .. });
+
+ it("should do something..", () => { .. });
+
+ afterAll(() => { .. });
+});
+				</code></pre>
+			</section>
+
+			<section>
+				<h4>Nested <code>describe</code></h4>
+				<pre><code class="hljs typescript" data-noescape>describe("What I globally test", () => {
+ beforeEach(() => { .. });
+
+ describe("sub scrope test", () => {
+  beforeEach(() => { .. });
+  it("should do one thing", () => { .. });
+  it("should do another thing", () => { .. });
+ });
+
+ describe("another sub scrope test", () => {
+  beforeEach(() => { .. });
+  it("should do different thing", () => { .. });
+  it("should do an original thing", () => { .. });
+ });
+});</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
