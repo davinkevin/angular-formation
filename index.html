@@ -1776,6 +1776,51 @@ describe("What I globally test", () => {
  });
 });</code></pre>
 			</section>
+			<section>
+				<h4><code>expect</code>-ation</h4>
+				<pre><code class="hljs typescript" data-noescape>
+it("should check the equality", () => {
+ expect(6*2).toEqual(12); //True
+});
+				</code></pre>
+			</section>
+			<section>
+				<h4><code>expect</code> and matchers</h4>
+				<pre><code class="hljs typescript" data-noescape>
+it("should check the equality", () => {
+ expect({foo: 'bar'}).toEqual({foo: 'bar'}); // True
+});
+<span class="fragment" data-fragment-index="1">
+it("should do a check equality", () => {
+ expect({foo: 'bar'}).toBe({foo: 'bar'}); // False
+});</span>
+				</code></pre>
+			</section>
+			<section>
+				<h4>A lot of matchers</h4>
+				<pre><code class="hljs typescript" data-noescape>
+it("...", () => {
+ <span class="fragment" data-fragment-index="1">expect(true).toBeTruthy();</span>
+ <span class="fragment" data-fragment-index="2">expect(false).toBeFalsy();</span>
+ <span class="fragment" data-fragment-index="3">expect(windows).toBeDefined();</span>
+ <span class="fragment" data-fragment-index="4">expect(null).toBeNull();</span>
+ <span class="fragment" data-fragment-index="5">expect(pi).toBeCloseTo(3.1, 2);</span>
+ <span class="fragment" data-fragment-index="6">expect(['foo', 'bar']).toContain('foo');</span>
+ <span class="fragment" data-fragment-index="7">expect('01-02-03-04-05').toMatch(/\d{2}-\d{2}-\d{2}-\d{2}-\d{2}/);</span>
+ <span class="fragment" data-fragment-index="8">expect(6).toBeGreaterThan(5);</span>
+ <span class="fragment" data-fragment-index="9">expect(5).toBeLessThan(6);</span>
+ <span class="fragment" data-fragment-index="10">expect(aFunctionWhichThrow).toThrow(new Error("Unexpected error!"));</span>
+});
+				</code></pre>
+			</section>
+			<section>
+				<h4>And a simple negation</h4>
+				<pre><code class="hljs typescript" data-noescape>
+it("...", () => {
+ expect('336$')<span class="fragment" data-fragment-index="1">.not</span>.toMatch(/\d{3}€/);
+});
+				</code></pre>
+			</section>
 		</section>
 	</div>
 </div>
