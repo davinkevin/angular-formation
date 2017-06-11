@@ -1840,6 +1840,99 @@ expect(jasmineMock.findOne).toHaveBeenCalledWith(12);
                 </code></pre>
             </section>
 		</section>
+        <section>
+            <section>
+                <h4>Configuration of test for Angular Component</h4>
+            </section>
+            <section>
+                <h4>DI in testing</h4>
+                <pre><code class="hljs typescript" data-noescape>@NgModule({
+  declarations: [ ComponentToTest ]
+  providers: [ MyService ]
+})
+class AppModule { }</code></pre>
+                <pre><code class="hljs typescript" data-noescape>TestBed.configureTestingModule({
+  declarations: [ ComponentToTest ],
+  providers: [ MyService ]
+}); </code></pre>
+                <pre><code class="hljs typescript" data-noescape>// Get instance during a BeforeEach call
+let service = TestBed.get(MyService); </code></pre>
+            </section>
+            <section>
+                <h4>Injection can be directly done in test</h4>
+                <pre><code class="hljs typescript" data-noescape>TestBed.configureTestingModule({
+  declarations: [ ComponentToTest ],
+  providers: [ MyService ]
+}); 			</code></pre>
+                <pre><code class="hljs typescript" data-noescape>
+it('should return ...', inject([MyService], service => {
+  service.foo();
+}));
+				</code></pre>
+            </section>
+            <section>
+                <h4>Full code example</h4>
+                <pre><code class="hljs typescript" data-noescape>
+describe('Service: LanguagesService', () => {
+
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [ LanguagesService ]
+  }));
+
+  it('should return languages', inject([LanguagesService], svc => {
+    expect(svc.get()).toContain('en');
+  }));
+})
+				</code></pre>
+            </section>
+			<section>
+				<h4>Accessing Component in test env</h4>
+				<pre><code class="hljs typescript" data-noescape>
+let fixture: ComponentFixture&ltAppComponent&gt; // Full component
+let component: AppComponent; // Pure Component instance
+let el: DebugElement; // DOM element with helper method
+
+beforeEach(() => {
+  TestBed.configureTestingModule({
+    declarations: [AppComponent]
+  }).compileComponents()
+});
+
+beforeEach(() => {
+  fixture = TestBed.createComponent(AppComponent);
+  component = fixture.componentInstance;
+  el = fixture.debugElement;
+});				</code></pre>
+			</section>
+			<section>
+				<h4>The Fixture...</h4>
+				<pre><code class="hljs typescript" data-noescape>
+abstract class ComponentFixture {
+  debugElement;         // test helper
+  componentInstance;    // to access properties and methods
+  nativeElement;        // to access raw DOM element
+  debugElement;         // to access DOM element with helper
+  detectChanges();      // trigger component change detection
+  autoDetectChanges();  // change the behavior of the
+                        // component change detection
+  whenStable(): Promise // return a resolved promise
+                        // when all changes are done
+}
+				</code></pre>
+			</section>
+			<section>
+				<h4>The DebugElement...</h4>
+				<pre><code class="hljs typescript" data-noescape>
+class DebugElement extends DebugNode {
+  properties : {[key: string]: any}
+  attributes : {[key: string]: string}
+  query(predicate: Predicate&ltDebugElement&gt) : DebugElement
+  queryAll(predicate: Predicate&ltDebugElement&gt) : DebugElement[]
+  triggerEventHandler(eventName: string, eventObj: any)
+}
+				</code></pre>
+			</section>
+        </section>
 	</div>
 </div>
 
