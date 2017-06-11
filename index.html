@@ -1821,6 +1821,24 @@ it("...", () => {
 });
 				</code></pre>
 			</section>
+            <section>
+                <h4>Mock</h4>
+                <pre><code class="hljs typescript" data-noescape>
+let worldSimplertMock = { findOne: () => { .. } };
+                </code></pre>
+                <pre><code class="hljs typescript" data-noescape>
+let jasmineMock = jasmine.createSpyObj('name',['findOne','reset']);
+                </code></pre>
+            </section>
+            <section>
+                <h4>And some specific expectation</h4>
+                <pre><code class="hljs typescript" data-noescape>
+let jasmineMock = jasmine.createSpyObj('name',['findOne','reset']);
+...
+expect(jasmineMock.findOne).toHaveBeenCalled();
+expect(jasmineMock.findOne).toHaveBeenCalledWith(12);
+                </code></pre>
+            </section>
 		</section>
 	</div>
 </div>
