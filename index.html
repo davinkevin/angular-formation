@@ -1933,6 +1933,82 @@ class DebugElement extends DebugNode {
 				</code></pre>
 			</section>
         </section>
+		<section>
+			<section>
+				<h4>Handling time and asynchronous task</h4>
+			</section>
+			<section>
+				<h4>async()</h4>
+				<pre><code class="hljs typescript" data-noescape>
+it('should render `Hello World!`', <span data-fragment-index="1" class="fragment">async(</span>() => {
+ greeter.name = 'World';
+
+ //trigger change detection
+ fixture.detectChanges();
+ fixture.whenStable().then(() => {
+   <span data-fragment-index="2" class="fragment">// Allow to wait this resolution</span>
+   expect(element.querySelector('h1').innerText)
+     .toBe('Hello World!');
+   expect(de.query(By.css('h1')).nativeElement.innerText)
+     .toBe('Hello World!');
+ });
+
+}<span data-fragment-index="1" class="fragment">)</span>);
+				</code></pre>
+			</section>
+			<section>
+				<p>fakeAsync()</p>
+				<pre><code class="hljs typescript" data-noescape>
+@Component({..})
+export class WelcomeComponent implements OnInit {
+
+  greetings: string;
+
+  ngOnInit() {
+    setTimeout(() => this.greetings = 'Hello there!', 3000);
+  }
+}
+				</code></pre>
+			</section>
+			<section>
+				<p>fakeAsync()</p>
+				<pre><code class="hljs typescript" data-noescape>
+it('should have a greeting message', fakeAsync(() => {
+  fixture.detectChanges();
+
+  tick(3000);
+
+  fixture.detectChanges();
+  expect(element.querySelector('p').textContent)
+    .toBe('Hello there!');
+}));
+
+				</code></pre>
+			</section>
+			<section>
+				<p>flush() (since 4.2)</p>
+				<pre><code class="hljs typescript" data-noescape>
+it('should have a greeting message', fakeAsync(() => {
+  fixture.detectChanges();
+
+  flush();
+
+  fixture.detectChanges();
+  expect(element.querySelector('p').textContent;)
+    .toBe('Hello there!');
+}));
+				</code></pre>
+			</section>
+		</section>
+		<section>
+			<section data-background-image="img/testing/howtotestthisorthat.gif">&nbsp;</section>
+			<section>
+				<h4>And how I test this or that ?</h4>
+				<a href="https://medium.com/google-developer-experts/angular-2-testing-guide-a485b6cb1ef0">Angular — Testing Guide (v4+)</a> by Gerard SANS (GDE)
+				<br>
+				<img src="img/testing/gerardsans.jpg" alt="gerard sans">
+			</section>
+		</section>
 	</div>
 </div>
 
